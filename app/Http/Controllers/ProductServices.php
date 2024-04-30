@@ -52,7 +52,7 @@ class ProductServices implements ProductInterface
         catch (\Exception $e)
         {  
             echo $e->getMessage();
-            return response()->json('error', Response::HTTP_INTERNAL_SERVER_ERROR);
+            return response()->json('Erro inesperado', Response::HTTP_BAD_REQUEST);
         }
          
     }

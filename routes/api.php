@@ -20,16 +20,22 @@ Route::middleware('auth:sanctum')->group(function ()
         [ProductInterface::class,"create"])->middleware('auth:sanctum');
     
     Route::put("/update/product", 
-        [ProductInterface::class,"update"]);
+        [ProductInterface::class,"update"])->middleware('auth:sanctum');
     
     Route::delete("/delete/product", 
-        [ProductInterface::class,"delete"]);  
+        [ProductInterface::class,"delete"])->middleware('auth:sanctum');
 });
   
-
+/**
+ * Index users
+ */
 Route::get('/users', function () {
 $users = User::all();
 return response([$users],200);});
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 /*
 *Auth Sanctum route
