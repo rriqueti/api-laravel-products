@@ -15,7 +15,7 @@ class ProductServices implements ProductInterface
         /*
         *Query database all products
         */
-        $products = Product::all();
+        $products = Product::all('id', 'name', 'status');
 
         /*
         If return query empty
