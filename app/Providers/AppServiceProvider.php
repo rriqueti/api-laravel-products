@@ -7,6 +7,7 @@ use App\Models\PersonalAccessToken;
 use Laravel\Sanctum\Sanctum;
 use App\Http\Controllers\ProductServices;
 use App\Interfaces\ProductInterface;
+use Tests\Feature\ProductTest;
 
 class AppServiceProvider extends ServiceProvider
 {

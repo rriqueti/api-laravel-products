@@ -2,14 +2,17 @@
 
 namespace Tests\Feature;
 
-
+use App\Models\Product;
 use Database\Factories\ProductFactory;
 use Tests\TestCase;
+use Faker\Factory as ProductFactoryFaker;
 
 class ProductTest extends TestCase
 {
 
-    protected $token = ['Authorization' => 'Bearer 13|XUszKnaiecVl6YZyEgR51bMI6DgMQtfi6oLHJja6be20a0ab'];
+    protected $token = [
+        'Authorization' => 'Bearer 14|gNN66k02VcKsfgsQ7gC9xLo9bmZ3kSJOlaW0qTig911a200a',
+];
     /**
      *
      */
@@ -27,11 +30,55 @@ class ProductTest extends TestCase
 
     public function test_create_route_products(): void
     {
-        $request = ProductFactory::create();
+        $factoryProduct = ProductFactoryFaker::create();
 
-        $resposne = $this->post('/api/create/product', 
-        $this->token,
-        $request->all()
-        )->assertStatus(200);
+        $request = [
+            'name' => $factoryProduct->name,
+            'description' => $factoryProduct->sentence,
+            'price' => $factoryProduct->randomFloat(2, 10, 100),
+            'status' => $factoryProduct->randomElement([0, 1]),
+            'stocky_quantity' => $factoryProduct->numberBetween(1, 100),
+        ];
+
+        $response = $this->post('/api/create/product', 
+        $request, 
+        $this->token)
+        ->assertStatus(200);
     }
+
+    public function test_update_route_products(): void
+    {
+        $factoryProduct = ProductFactoryFaker::create();
+
+        $idProduct = Product::all()->value('id');
+
+        $request = [
+            'id' => $factoryProduct->randomElement([$idProduct]),
+            'status' => $factoryProduct->randomElement([0, 2]),
+            'stocky_quantity' => $factoryProduct->numberBetween(1, 100),
+        ];
+
+        $response = $this->put('/api/update/product', 
+        $request, 
+        $this->token)
+        ->assertStatus(200);
+    }
+
+    public function test_delete_route_products(): void
+    {
+        $factoryProduct = ProductFactoryFaker::create();
+
+        $idProduct = Product::all()->value('id');
+
+        $request = [
+            'id' => $factoryProduct->randomElement([$idProduct]),
+        ];
+
+        $response = $this->delete('/api/delete/product', 
+        $request, 
+        $this->token)
+        ->assertStatus(200);
+    }
+
+
 }
