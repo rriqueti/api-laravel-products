@@ -18,5 +18,15 @@ class Product extends Model
         "status",
         "stocky_quantity",
     ];
+
+    public function getStatusAttribute($value)
+    {
+        $statusMapping = [
+            0 => 'Indisponível',
+            1 => 'Disponível',
+        ];
+
+        return $statusMapping[$value] ?? 'Desconhecido';
+    }
     
 }
