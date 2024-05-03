@@ -4,6 +4,7 @@ use App\Http\Controllers\CheckEmail;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;   
 use App\Interfaces\ProductInterface;
+use App\Jobs\ExampleJob;
 
 
 /*
@@ -41,3 +42,5 @@ Route::get('/', function () {
 *Auth Sanctum route
  */
 Route::post('/login', [CheckEmail::class,'login']);
+
+

@@ -44,9 +44,10 @@ class ProductServices implements ProductInterface
             /*
             *Create if has sucess validate
             */
-            Product::create($validateData);
+            // Product::create($validateData);
+            $request->user()->products()->create($validateData);
 
-            return response()->json('Criado com Sucesso', Response::HTTP_OK);
+            return response()->json('Criado com Sucesso', Response::HTTP_CREATED);
             
         }
         catch (\Exception $e)

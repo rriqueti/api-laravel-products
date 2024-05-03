@@ -18,6 +18,7 @@ return new class extends Migration
             $table->float('price');
             $table->integer('status');
             $table->integer('stocky_quantity');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
     });
     }

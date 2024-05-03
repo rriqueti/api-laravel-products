@@ -11,7 +11,7 @@ class ProductTest extends TestCase
 {
 
     protected $token = [
-        'Authorization' => 'Bearer 14|gNN66k02VcKsfgsQ7gC9xLo9bmZ3kSJOlaW0qTig911a200a',
+        'Authorization' => 'Bearer 5|gmmGasvGGMIsVmMnV5z8iaFzWPcDOHzpRwyQWjS53cad00fc',
 ];
     /**
      *
