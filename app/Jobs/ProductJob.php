@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 // use App\Http\Controllers\ProductServices;
 use App\Http\Controllers\Product\ProductServices;
-use App\Models\Product;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

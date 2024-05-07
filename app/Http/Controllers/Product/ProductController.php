@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Product;
 
 use App\Interfaces\ProductInterface;
 use App\Http\Requests\ProductRequest;
 use App\Jobs\ProductJob;
+use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
