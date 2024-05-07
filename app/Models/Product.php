@@ -19,14 +19,14 @@ class Product extends Model
         "stocky_quantity",
     ];
 
-    public function status_alias($value)
+    public function getStatusAttribute($value)
     {
-        $status_alias = [
+        $statusMapping = [
             0 => 'Indisponível',
             1 => 'Disponível',
         ];
 
-        return $status_alias[$value] ?? 'Desconhecido';
+        return $statusMapping[$value] ?? 'Desconhecido';
     }
     
 }
