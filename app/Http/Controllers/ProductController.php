@@ -25,7 +25,10 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request)
     {
-        return $this->product->update($request);
+        ProductJob::dispatch($this->product, $request);
+
+        return response()->json(['message' => 'Alteração dos dados foi enviada']);
+        // return $this->product->update($request);
     }
 
     public function delete(ProductRequest $request)
