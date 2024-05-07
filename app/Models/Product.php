@@ -13,6 +13,7 @@ class Product extends Model
     protected $fillable = 
     [
         "name",
+        "user_id",
         "description",
         "price",
         "status",
@@ -28,5 +29,7 @@ class Product extends Model
 
         return $statusMapping[$value] ?? 'Desconhecido';
     }
+
+
     
 }

@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
                     "name" => "required|unique:products|string|max:255",
                     "description" => "string|max:255",
                     "price"=>"required|numeric",
-                    "status"=> "required|integer|in:0,1,2",
+                    "status"=> "required|integer|in:0,1",
                     "stocky_quantity"=>"required|integer|min:0",
                 ];
             }
@@ -38,9 +38,10 @@ class ProductRequest extends FormRequest
                     "name"=> "unique:products|string|max:255",
                     "description" => "string|max:255",
                     "price"=>"numeric",
-                    "status"=> "integer|in:0,1,2",
+                    "status"=> "integer|in:0,1",
                     "stocky_quantity"=>"integer|min:0",
                 ];
             };
     }
+
 }

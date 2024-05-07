@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Models\PersonalAccessToken;
 use Laravel\Sanctum\Sanctum;
-use App\Http\Controllers\ProductServices;
+use App\Http\Controllers\Product\ProductServices;
 use App\Interfaces\ProductInterface;
 use Tests\Feature\ProductTest;
 

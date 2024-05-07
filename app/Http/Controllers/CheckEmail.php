@@ -17,7 +17,8 @@ class CheckEmail extends Controller
         {
 
         $token = $request->user()->createToken('Authorization')->plainTextToken;
-
+    
+        
         return response()->json(
             ['Authorized', $token], 
             Response::HTTP_ACCEPTED,[$token]);
