@@ -40,20 +40,22 @@ class ProductServices implements ProductInterface
             *Validate with rules ProductRequest
             */
             $validateData = $request->validated();
-
+ 
             /*
             *Create if has sucess validate
             */
-            // Product::create($validateData);
             $request->user()->products()->create($validateData);
 
-            return response()->json('Criado com Sucesso', Response::HTTP_CREATED);
-            
+            return response()
+                ->json('Criado com Sucesso', 
+                        Response::HTTP_CREATED);
         }
+        
         catch (\Exception $e)
         {  
-            echo $e->getMessage();
-            return response()->json('Erro inesperado', Response::HTTP_BAD_REQUEST);
+            return response()
+            ->json('Erro inesperado', 
+                    Response::HTTP_BAD_REQUEST);
         }
          
     }

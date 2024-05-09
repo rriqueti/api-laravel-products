@@ -32,16 +32,19 @@ class ProductRequest extends FormRequest
                     "stocky_quantity"=>"required|integer|min:0",
                 ];
             }
-            else{
-                return 
-                [
-                    "name"=> "unique:products|string|max:255",
-                    "description" => "string|max:255",
-                    "price"=>"numeric",
-                    "status"=> "integer|in:0,1",
-                    "stocky_quantity"=>"integer|min:0",
-                ];
-            };
+            
+            /**
+             * If the HTTP method is different from 'POST'
+             */
+            return 
+            [
+                "name"=> "unique:products|string|max:255",
+                "description" => "string|max:255",
+                "price"=>"numeric",
+                "status"=> "integer|in:0,1",
+                "stocky_quantity"=>"integer|min:0",
+            ];
+    
     }
 
 }
