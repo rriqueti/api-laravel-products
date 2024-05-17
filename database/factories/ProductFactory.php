@@ -24,4 +24,14 @@ class ProductFactory extends Factory
             'stocky_quantity' => $this->faker->numberBetween(1, 100),
         ];
     }
+
+    /**
+     * Nullable value for user addict when origin is seeder.
+     */
+    public function unverified(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'user_id' => null,
+        ]);
+    }
 }

@@ -80,7 +80,7 @@ class ProductServices implements ProductInterface
         }
         catch (\Exception $e)
         {
-            return response()->json($e->getMessage(), 500);
+            return response()->json($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
         
     }
@@ -97,7 +97,7 @@ class ProductServices implements ProductInterface
         }
         catch (\Exception $e)
         {
-            return response()->json($e->getMessage(), 500);
+            return response()->json($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
         
     }

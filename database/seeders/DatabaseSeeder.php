@@ -16,13 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
 
-        // User::create(
-        //     [
-        //         "name"=> "User teste",
-        //         "email"=> "user@teste.com.br",
-        //         "password"=> 'password'
-        //     ]
-        // );
+        User::create(
+            [
+                "name"=> "User teste",
+                "email"=> "user@teste.com.br",
+                "password"=> 'password',
+                "perfil" =>  fake()->randomElement([0, 1]),
+            ]
+        );
 
         Product::factory(10)->create();
         
